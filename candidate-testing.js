@@ -38,9 +38,7 @@ function gradeQuiz(candidateAnswers) {
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
 for (let i = 0; i < candidateAnswers.length; i++) {
   if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
-    console.log(`Question ${i + 1} Correct`);
-  } else {
-    console.log(`Question ${i + 1} Incorrect`);
+    console.log(`Answer to ${questions[i]} was ${correctAnswers[i]} \n Your answer was ${candidateAnswers[i]}`)
   }
 }
 
@@ -52,13 +50,15 @@ for (let i = 0; i < candidateAnswers.length; i++){
   }
 }
 
-console.log(grade / correctAnswers.length * 100);
+ let finalGrade = grade / correctAnswers.length * 100;
+ console.log(`Your grade is: ${finalGrade}%`)
+ return finalGrade
 }
 
 function runProgram() {
   askForName();
   // TODO 1.1c: Greet candidate using their name //
-   console.log();
+  console.log("Hello " + candidateName + "!");
   askQuestion();
   gradeQuiz(this.candidateAnswers);
 }
